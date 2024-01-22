@@ -37,7 +37,7 @@ open class LCObject: NSObject, Sequence, LCValue, LCValueExtension, InternalOpti
              This property is intent for internal use.
              For accesssing all properties, please use `dictionary` property.
      */
-    private var propertyTable: LCDictionary = [:]
+    public var propertyTable: LCDictionary = [:]
 
     /// The table of all properties.
     private lazy var _dictionary: LCDictionary = {
@@ -240,7 +240,7 @@ open class LCObject: NSObject, Sequence, LCValue, LCValueExtension, InternalOpti
     
     /// Encodes the receiver using a given archiver.
     /// - Parameter coder: An archiver object.
-    public func encode(with coder: NSCoder) {
+    open func encode(with coder: NSCoder) {
         let applicationID: String = self.application.id
         let propertyTable: LCDictionary = self.dictionary.copy() as! LCDictionary
         coder.encode(applicationID, forKey: "applicationID")

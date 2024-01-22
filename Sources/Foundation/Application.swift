@@ -16,7 +16,7 @@ public class LCApplication {
     
     // MARK: Registry
     
-    static var registry: [String: LCApplication] = [:]
+    static public private(set) var registry: [String: LCApplication] = [:]
     
     // MARK: Log
     
